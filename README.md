@@ -154,6 +154,124 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Inspired by classical astronomy and quantum computation techniques.
 - Thanks to the open-source community for supporting tools like NumPy and TQDM.
 
+
+# Quantum Formulas for Quantum Models
+
+## 1. Quantum State Representation
+A quantum state is represented as a vector in a Hilbert space.
+
+### Single Qubit
+\[
+|\psi\rangle = \alpha |0\rangle + \beta |1\rangle
+\]
+Where:
+- \(\alpha, \beta \in \mathbb{C}\)
+- \(|\alpha|^2 + |\beta|^2 = 1\)
+
+### Multi-Qubit System
+For an \(n\)-qubit system:
+\[
+|\psi\rangle = \sum_{i=0}^{2^n - 1} c_i |i\rangle
+\]
+Where \(c_i\) are complex amplitudes, and:
+\[
+\sum |c_i|^2 = 1
+\]
+
+---
+
+## 2. Quantum Gate Operations
+Quantum gates are unitary matrices that operate on quantum states.
+
+### Hadamard Gate (H)
+\[
+H = \frac{1}{\sqrt{2}}
+\begin{bmatrix}
+1 & 1 \\
+1 & -1
+\end{bmatrix}
+\]
+
+### Pauli Gates
+- **Pauli-X Gate (NOT Gate):**
+\[
+X = 
+\begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}
+\]
+
+- **Pauli-Y Gate:**
+\[
+Y = 
+\begin{bmatrix}
+0 & -i \\
+i & 0
+\end{bmatrix}
+\]
+
+- **Pauli-Z Gate:**
+\[
+Z = 
+\begin{bmatrix}
+1 & 0 \\
+0 & -1
+\end{bmatrix}
+\]
+
+---
+
+## 3. Quantum Measurement
+Measurement collapses a quantum state to a classical outcome.
+
+The probability of measuring state \(|i\rangle\) is:
+\[
+P(i) = |c_i|^2
+\]
+Where \(c_i\) is the amplitude of \(|i\rangle\).
+
+---
+
+## 4. Quantum Entanglement
+For an entangled state (e.g., Bell State):
+\[
+|\phi^+\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)
+\]
+
+---
+
+## 5. Quantum Circuit Evolution
+The state evolution in a quantum circuit is given by:
+\[
+|\psi_{\text{final}}\rangle = U |\psi_{\text{initial}}\rangle
+\]
+Where \(U\) is the unitary operator representing the circuit.
+
+---
+
+## 6. Quantum Optimization (Variational Quantum Circuits)
+The objective function is minimized as:
+\[
+\min_{\theta} \langle \psi(\theta) | H | \psi(\theta) \rangle
+\]
+Where:
+- \(|\psi(\theta)\rangle\) is a parameterized quantum state.
+- \(H\) is the Hamiltonian (observable).
+
+---
+
+## 7. Quantum Fourier Transform (QFT)
+For an \(n\)-qubit state:
+\[
+QFT|x\rangle = \frac{1}{\sqrt{2^n}} \sum_{y=0}^{2^n-1} e^{2\pi i \cdot x \cdot y / 2^n} |y\rangle
+\]
+
+---
+
+These formulas form the mathematical foundation for quantum computing models.
+
+
 ---
 
 ## Contact
