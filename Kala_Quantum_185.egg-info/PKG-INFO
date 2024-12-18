@@ -1,3 +1,19 @@
+Metadata-Version: 2.1
+Name: Kala_Quantum_185
+Version: 0.1.0
+Summary: A hybrid classical-quantum framework for code language modeling.
+Home-page: https://github.com/kalasaikamesh944/kala_quantum
+Author: N V R K SAI KAMESH YADAVALLI
+Author-email: saikamesh.y@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: numpy>=1.21.0
+Requires-Dist: torch>=1.12.0
+
 # Kala_Quantum
 
 **Kala_Quantum** is designed for quantum operations and training, enabling advanced computations and simulations for astronomical data such as the Sun and Moon's longitude and latitude. It integrates classical positional astronomy formulas with quantum computation concepts, allowing precise predictions and data processing over extensive timeframes (e.g., 9,000 years).
@@ -37,17 +53,17 @@ cd Kala_Quantum
 ## Directory Structure
 ```
 Kala_Quantum/
-├── __init__.py
-├── datasets.py           # Data handling modules
-├── models.py             # Quantum and classical model definitions
-├── quantum_core.py       # Quantum state and gate implementations
-├── quantum_layer.py      # Quantum-inspired layers for ML
-├── tokenizer.py          # Tokenization logic for code and data
-├── train.py              # Training utilities
-├── tests/
-│   ├── demo.py           # Example script for Sun & Moon prediction
-│   └── main.py           # Model training script
-└── build/                # Build-related files
+â”œâ”€â”€ __init__.py
+â”œâ”€â”€ datasets.py           # Data handling modules
+â”œâ”€â”€ models.py             # Quantum and classical model definitions
+â”œâ”€â”€ quantum_core.py       # Quantum state and gate implementations
+â”œâ”€â”€ quantum_layer.py      # Quantum-inspired layers for ML
+â”œâ”€â”€ tokenizer.py          # Tokenization logic for code and data
+â”œâ”€â”€ train.py              # Training utilities
+â”œâ”€â”€ tests/
+â”‚   â”œâ”€â”€ demo.py           # Example script for Sun & Moon prediction
+â”‚   â””â”€â”€ main.py           # Model training script
+â””â”€â”€ build/                # Build-related files
 ```
 
 ---
