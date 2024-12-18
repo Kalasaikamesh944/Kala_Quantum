@@ -154,36 +154,16 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Inspired by classical astronomy and quantum computation techniques.
 - Thanks to the open-source community for supporting tools like NumPy and TQDM.
 
+# Quantum Gates and Operations
 
-# Quantum Formulas for Quantum Models
-
-## 1. Quantum State Representation
-A quantum state is represented as a vector in a Hilbert space.
-
-### Single Qubit
-\[
-|\psi\rangle = \alpha |0\rangle + \beta |1\rangle
-\]
-Where:
-- \(\alpha, \beta \in \mathbb{C}\)
-- \(|\alpha|^2 + |\beta|^2 = 1\)
-
-### Multi-Qubit System
-For an \(n\)-qubit system:
-\[
-|\psi\rangle = \sum_{i=0}^{2^n - 1} c_i |i\rangle
-\]
-Where \(c_i\) are complex amplitudes, and:
-\[
-\sum |c_i|^2 = 1
-\]
+This document provides an overview of quantum gates implemented in the `QuantumState` class. Quantum gates are fundamental building blocks of quantum circuits. Below, you’ll find definitions and graphical representations of these gates.
 
 ---
 
-## 2. Quantum Gate Operations
-Quantum gates are unitary matrices that operate on quantum states.
+## 1. Single-Qubit Gates
 
 ### Hadamard Gate (H)
+The Hadamard gate creates superposition:
 \[
 H = \frac{1}{\sqrt{2}}
 \begin{bmatrix}
@@ -192,8 +172,13 @@ H = \frac{1}{\sqrt{2}}
 \end{bmatrix}
 \]
 
+- **Effect:** Transforms \(|0\rangle \rightarrow \frac{|0\rangle + |1\rangle}{\sqrt{2}}\), and \(|1\rangle \rightarrow \frac{|0\rangle - |1\rangle}{\sqrt{2}}\).
+
+---
+
 ### Pauli Gates
-- **Pauli-X Gate (NOT Gate):**
+
+1. **Pauli-X Gate (NOT Gate)**:
 \[
 X = 
 \begin{bmatrix}
@@ -201,8 +186,9 @@ X =
 1 & 0
 \end{bmatrix}
 \]
+- **Effect:** Flips \(|0\rangle \leftrightarrow |1\rangle\).
 
-- **Pauli-Y Gate:**
+2. **Pauli-Y Gate**:
 \[
 Y = 
 \begin{bmatrix}
@@ -210,8 +196,9 @@ Y =
 i & 0
 \end{bmatrix}
 \]
+- **Effect:** Combines a bit-flip and a phase-flip.
 
-- **Pauli-Z Gate:**
+3. **Pauli-Z Gate**:
 \[
 Z = 
 \begin{bmatrix}
@@ -219,57 +206,108 @@ Z =
 0 & -1
 \end{bmatrix}
 \]
+- **Effect:** Flips the phase of \(|1\rangle\).
 
 ---
 
-## 3. Quantum Measurement
-Measurement collapses a quantum state to a classical outcome.
+### Phase and T Gates
 
-The probability of measuring state \(|i\rangle\) is:
+1. **Phase Gate (S)**:
 \[
-P(i) = |c_i|^2
-\]
-Where \(c_i\) is the amplitude of \(|i\rangle\).
-
----
-
-## 4. Quantum Entanglement
-For an entangled state (e.g., Bell State):
-\[
-|\phi^+\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)
+S = 
+\begin{bmatrix}
+1 & 0 \\
+0 & i
+\end{bmatrix}
 \]
 
----
-
-## 5. Quantum Circuit Evolution
-The state evolution in a quantum circuit is given by:
+2. **T Gate**:
 \[
-|\psi_{\text{final}}\rangle = U |\psi_{\text{initial}}\rangle
-\]
-Where \(U\) is the unitary operator representing the circuit.
-
----
-
-## 6. Quantum Optimization (Variational Quantum Circuits)
-The objective function is minimized as:
-\[
-\min_{\theta} \langle \psi(\theta) | H | \psi(\theta) \rangle
-\]
-Where:
-- \(|\psi(\theta)\rangle\) is a parameterized quantum state.
-- \(H\) is the Hamiltonian (observable).
-
----
-
-## 7. Quantum Fourier Transform (QFT)
-For an \(n\)-qubit state:
-\[
-QFT|x\rangle = \frac{1}{\sqrt{2^n}} \sum_{y=0}^{2^n-1} e^{2\pi i \cdot x \cdot y / 2^n} |y\rangle
+T = 
+\begin{bmatrix}
+1 & 0 \\
+0 & e^{i\pi/4}
+\end{bmatrix}
 \]
 
 ---
 
-These formulas form the mathematical foundation for quantum computing models.
+## 2. Multi-Qubit Gates
+
+### CNOT Gate (Controlled-X)
+\[
+CNOT = 
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0
+\end{bmatrix}
+\]
+
+- **Effect:** Flips the target qubit if the control qubit is \(|1\rangle\).
+
+---
+
+### Swap Gate
+\[
+SWAP = 
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1
+\end{bmatrix}
+\]
+
+- **Effect:** Swaps the states of two qubits.
+
+---
+
+### Toffoli Gate (CCNOT)
+\[
+TOFFOLI = 
+\begin{bmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 0
+\end{bmatrix}
+\]
+
+- **Effect:** A NOT operation on the target qubit if both control qubits are \(|1\rangle\).
+
+---
+
+### Fredkin Gate (CSWAP)
+\[
+FREDKIN = 
+\begin{bmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1
+\end{bmatrix}
+\]
+
+- **Effect:** Swaps the two target qubits if the control qubit is \(|1\rangle\).
+
+---
+
+## Visualization
+
+- Single-qubit gates operate on a single state vector.
+- Multi-qubit gates act on combined Hilbert spaces using the Kronecker product.
+
+This README explains the mathematical definitions and matrix representations of gates. For examples of usage, see the provided code.
 
 
 ---
