@@ -252,5 +252,5 @@ The results are stored in a JSON file:
 
 ## **11. Contact**
 For questions, suggestions, or contributions:
-- **Your Name**: saikamesh.y@gmail.com
+- **N V R K SAI KAMESH YADAVALLI**: saikamesh.y@gmail.com
 - **GitHub**: [https://github.com/Kalasaikamesh944/Kala_Quantum](https://github.com/Kalasaikamesh944/Kala_Quantum)
