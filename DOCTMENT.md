@@ -248,6 +248,162 @@ The results are stored in a JSON file:
 - Positional Astronomy Formulas
 - Quantum Mechanics Basics
 
+# Quantum Gates and Operations
+
+This document provides an overview of quantum gates implemented in the `QuantumState` class. Quantum gates are fundamental building blocks of quantum circuits. Below, you’ll find definitions and graphical representations of these gates.
+
+---
+
+## 1. Single-Qubit Gates
+
+### Hadamard Gate (H)
+The Hadamard gate creates superposition:
+\[
+H = \frac{1}{\sqrt{2}}
+\begin{bmatrix}
+1 & 1 \\
+1 & -1
+\end{bmatrix}
+\]
+
+- **Effect:** Transforms \(|0\rangle \rightarrow \frac{|0\rangle + |1\rangle}{\sqrt{2}}\), and \(|1\rangle \rightarrow \frac{|0\rangle - |1\rangle}{\sqrt{2}}\).
+
+---
+
+### Pauli Gates
+
+1. **Pauli-X Gate (NOT Gate)**:
+\[
+X = 
+\begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}
+\]
+- **Effect:** Flips \(|0\rangle \leftrightarrow |1\rangle\).
+
+2. **Pauli-Y Gate**:
+\[
+Y = 
+\begin{bmatrix}
+0 & -i \\
+i & 0
+\end{bmatrix}
+\]
+- **Effect:** Combines a bit-flip and a phase-flip.
+
+3. **Pauli-Z Gate**:
+\[
+Z = 
+\begin{bmatrix}
+1 & 0 \\
+0 & -1
+\end{bmatrix}
+\]
+- **Effect:** Flips the phase of \(|1\rangle\).
+
+---
+
+### Phase and T Gates
+
+1. **Phase Gate (S)**:
+\[
+S = 
+\begin{bmatrix}
+1 & 0 \\
+0 & i
+\end{bmatrix}
+\]
+
+2. **T Gate**:
+\[
+T = 
+\begin{bmatrix}
+1 & 0 \\
+0 & e^{i\pi/4}
+\end{bmatrix}
+\]
+
+---
+
+## 2. Multi-Qubit Gates
+
+### CNOT Gate (Controlled-X)
+\[
+CNOT = 
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0
+\end{bmatrix}
+\]
+
+- **Effect:** Flips the target qubit if the control qubit is \(|1\rangle\).
+
+---
+
+### Swap Gate
+\[
+SWAP = 
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1
+\end{bmatrix}
+\]
+
+- **Effect:** Swaps the states of two qubits.
+
+---
+
+### Toffoli Gate (CCNOT)
+\[
+TOFFOLI = 
+\begin{bmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 0
+\end{bmatrix}
+\]
+
+- **Effect:** A NOT operation on the target qubit if both control qubits are \(|1\rangle\).
+
+---
+
+### Fredkin Gate (CSWAP)
+\[
+FREDKIN = 
+\begin{bmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1
+\end{bmatrix}
+\]
+
+- **Effect:** Swaps the two target qubits if the control qubit is \(|1\rangle\).
+
+---
+
+## Visualization
+
+- Single-qubit gates operate on a single state vector.
+- Multi-qubit gates act on combined Hilbert spaces using the Kronecker product.
+
+This README explains the mathematical definitions and matrix representations of gates. For examples of usage, see the provided code.
+
+
 ---
 
 ## **11. Contact**
